@@ -19,7 +19,7 @@ export default function Home() {
         
         <div className="absolute flex flex-col justify-center items-center top-20 bottom-0 left-0 right-0">
           <h1 className="text-3xl text-center text-white font-extralight mx-6 mb-4">Hello user, welcome to the free writting website!</h1>
-          <a href="" className="block"><button className="border px-4 py-2 rounded text-xl font-semibold text-zinc-950 border-skygold hover:invert hover:bg-white transition ease-out duration-500">
+          <a href="/read" className="block"><button className="border px-4 py-2 rounded text-xl font-semibold text-zinc-950 border-skygold hover:invert hover:bg-white transition ease-out duration-500">
               READ here!
             </button></a>
         </div>
@@ -38,9 +38,6 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <footer>
-        <Footer/>
-      </footer>
     </>
   )
 }

@@ -23,7 +23,7 @@ export default function RootLayout({
             <Nav />
           </header>
           {children}
-          <footer>
+          <footer className='z-10 relative'>
             <Footer/>
           </footer>
         </ClientClickContext>
