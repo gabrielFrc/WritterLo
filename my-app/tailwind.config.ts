@@ -14,13 +14,15 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        'transparent': 'transparent',
         'skylight': '#F7F6F1',
         'skylightblue': '#7A95BA',
         'skyblue': '#1F4D8F',
         'skygold': '#998365',
       },
       fontFamily: {
-        'hand-write': ['Caveat']
+        'hand-write': ['Caveat'],
+        'cuprum': ['Cuprum']
       },
       keyframes: {
         disappear: {
