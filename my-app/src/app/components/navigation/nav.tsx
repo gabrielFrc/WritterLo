@@ -1,5 +1,5 @@
 import ClickMe, { DropdownMenu } from "../clickthisbutton";
-import LoginWindow, { LogInButton } from "../login-window";
+import LoginWindow from "../login-window";
 
 export default function Nav() {
     return (
@@ -21,7 +21,7 @@ export default function Nav() {
                 <div className="mx-6 hidden md:flex md:items-center text-base" id="menu">
                     <div className="mx-6 hidden md:block">
                         <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Write</button>
-                        <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Stories</button>
+                        <a href="/read"><button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Stories</button></a>
                         <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">About</button>
                     </div>
                     <a href="/entrar"><button className="font-semibold bg-transparent rounded-full px-3 py-3 hover:bg-skygold hover:text-white transition ease-out duration-500"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline mx-2">

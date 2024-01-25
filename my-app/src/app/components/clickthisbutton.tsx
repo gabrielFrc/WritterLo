@@ -78,7 +78,7 @@ export function DropdownMenu() {
     // ]
     const myButtons = [
         { name: 'Write', url: '' },
-        { name: 'Stories', url: '/signin' },
+        { name: 'Stories', url: '/read' },
         { name: 'About', url: '/signin' },
         { name: 'Policy', url: '/signin' },
     ]

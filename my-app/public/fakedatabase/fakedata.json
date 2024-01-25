@@ -1,6 +1,12 @@
 {
-    "employees": [
-        {"name": "Agatha"},
-        {"name": "George"}
+    "authors": [
+        {"name": "Agatha Crispies", "books": [
+            {"name": "Terror of Calipsum", "categorie": ["comedy"], "price": 0, "image_url": "images/rascunho-livro-writterlo.png"},
+            {"name": "Park of Future", "categorie": ["fiction", "horror"], "price": 15, "image_url": "images/rascunho-livro-writterlo3.png"}
+            ]},
+        {"name": "George Loghan", "books": [
+            {"name": "Ghosts of Amenia", "categorie": ["horror", "comedy"], "price": 10, "image_url": "images/rascunho-livro-writterlo.png"},
+            {"name": "Books on the table", "categorie": ["comedy"], "price": 0, "image_url": "images/rascunho-livro-writterlo2.png"}
+        ]}
     ]
 }
