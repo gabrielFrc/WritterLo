@@ -2,9 +2,19 @@
 
 import { createContext, useState } from "react";
 
+export interface Book {
+    id: number;
+    name: string;
+    categories: string[];
+    price: number;
+    image_url: string;
+    author: string;
+}
+
 export interface AuthorContext {
     name: string;
     book: {
+        id: number,
         name: string;
         categorie: string[];
         price: number;
@@ -17,19 +27,19 @@ export interface LibraryDataContext {
 }
 
 interface myContext {
-    data : LibraryDataContext[] | null;
-    updateBooks : (newValue : LibraryDataContext) => void;
+    data : Book[] | null;
+    updateBooks : (newValue : Book) => void;
     clearBooks : () => void;
 }
 
 export const BookFilterContext = createContext<myContext | undefined>(undefined);
 
-const contextNullValue : LibraryDataContext[] = []
+const contextNullValue : Book[] = []
 
 export const BookFilterContextProvider = ({children} : {children : React.ReactNode}) => {
-    const [bookFiltered, setBookFiltered] = useState<LibraryDataContext[] | []>(contextNullValue)
+    const [bookFiltered, setBookFiltered] = useState<Book[] | []>(contextNullValue)
     
-    const updateBookFilter = (newValue : LibraryDataContext) => {
+    const updateBookFilter = (newValue : Book) => {
         setBookFiltered(oldArray => [...oldArray, newValue]);
     }
     const clearBooksFilter = () => {

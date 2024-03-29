@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { BookFilterContext } from "./bookfilter-context";
+import { Book, BookFilterContext } from "./bookfilter-context";
 import { LibraryDataContext } from "./bookfilter-context";
+import { useBookData } from "@/app/BooksAPI/fetchbook";
 
 interface FiltersOptions {
     isFree: boolean,
@@ -14,21 +15,23 @@ interface FiltersOptions {
         'comedy': boolean,
     },
 }
-interface Book {
-    name: string;
-    categorie: string[];
-    price: number;
-    image_url: string;
-}
+// interface Book {
+//     id: number;
+//     name: string;
+//     categorie: string[];
+//     price: number;
+//     image_url: string;
+// }
 
-interface Author {
-    name: string;
-    books: Book[];
-}
+// interface Author {
+//     name: string;
+//     books: Book[];
+// }
 
-interface LibraryData {
-    authors: Author[];
-}
+// interface LibraryData {
+//     authors: Author[];
+// }
+
 
 export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => void }) {
     const [filtersOpen, setFilters] = useState<Boolean>(true);
@@ -39,31 +42,45 @@ export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => voi
             'horror': true, 'fiction': true, 'comedy': true
         },
     });
-    const [dataFake, setDataFake] = useState<LibraryData | null>(null);
-
+    const [dataFake, setDataFake] = useState<Book[] | null>(null);
+    
     const books = useContext(BookFilterContext);
+    
+    const { data } = useBookData();
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch("/fakedatabase/fakedata.json");
-            const data = await response.json();
-            setDataFake(data);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    // console.log(data)
+    
+    // const fetchData = async () => {
+    //     try {
+    //         const response = await fetch("/fakedatabase/fakedata.json");
+    //         const data = await response.json();
+    //         setDataFake(data);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
     useEffect(() => {
-        fetchData();
-    }, [])
-    useEffect(() => {
-        submitFilters();
-    }, [dataFake])
+        // setDataFake(data);
+        // setTimeout(() => {
+            submitFilters();
+        // }, 2000);
+    }, [data])
+    // useEffect(() => {
+    //     submitFilters();
+    //     setTimeout(() => {
+    //         // console.log(data)
+    //     }, 1000);
+    // }, [dataFake])
 
     const submitFilters = (): void => {
         var radios = document.getElementsByTagName('input');
         let isBookFree: String = 'free';
         let categories: String[] = [];
-        let filteredBooks: LibraryDataContext[] = [];
+        let filteredBooks: Book[] = [];
+
+        if(data == null || data == undefined){
+            return;
+        }
 
         for (let index = 0; index < radios.length; index++) {
             if (radios[index].type == 'checkbox' && radios[index].checked) {
@@ -79,33 +96,35 @@ export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => voi
         books?.clearBooks();
         filteredBooks = [];
 
-        dataFake?.authors.forEach(element => {
-            element.books.forEach(book => {
-                if (book.price <= 0 && filtersOption.isFree) {
-                    const newItem: LibraryDataContext = {
-                        author: {
-                            name: element.name,
-                            book: { ...book },
-                        }
+        data?.forEach((element : Book) => {
+                if (element.price <= 0 && filtersOption.isFree) {
+                    const newItem: Book = {
+                        id: element.id,
+                        name: element.name,
+                        categories: element.categories,
+                        price: element.price,
+                        image_url: element.image_url,
+                        author: element.author,
                     };
                     filteredBooks.push(newItem);
-                } else if (book.price > 0 && filtersOption.isPaid) {
-                    const newItem: LibraryDataContext = {
-                        author: {
-                            name: element.name,
-                            book: { ...book },
-                        }
+                } else if (element.price > 0 && filtersOption.isPaid) {
+                    const newItem: Book = {
+                        id: element.id,
+                        name: element.name,
+                        categories: element.categories,
+                        price: element.price,
+                        image_url: element.image_url,
+                        author: element.author,
                     };
                     filteredBooks.push(newItem);
                 }
-            })
         });
 
         let verified: Boolean = false;
         if(filteredBooks.length > 0){
             filteredBooks.forEach((v, i) => {
                 verified = false;
-                v.author.book.categorie.forEach(cat => {
+                v.categories.forEach(cat => {
                     if(verified){
                         return;
                     }
@@ -127,7 +146,7 @@ export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => voi
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
                 </svg>
             </div>
-                : <form className="absolute z-0 top-[60px] w-full md:w-[35vw] md:bg-transparent bg-skylight pb-6">
+                : <form className="absolute z-0 top-[60px] w-full md:w-[190px] md:bg-transparent bg-skylight pb-6">
                     <div className="flex gap-x-10 items-center ml-6 mt-4">
                         <h1>Options</h1>
                         <div className="flex hover:cursor-pointer" onClick={() => { setFilters(!filtersOpen) }}>
