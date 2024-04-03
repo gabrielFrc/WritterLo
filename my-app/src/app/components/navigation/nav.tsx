@@ -20,7 +20,7 @@ export default function Nav() {
                 </div>
                 <div className="mx-6 hidden md:flex md:items-center text-base" id="menu">
                     <div className="mx-6 hidden md:block">
-                        <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Write</button>
+                        <a href="/write" className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Write</a>
                         <a href="/read"><button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Stories</button></a>
                         <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">About</button>
                     </div>

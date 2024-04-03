@@ -6,12 +6,11 @@ import { useContext } from "react";
 export const BookAfterFilter = () => {
     const myContext = useContext(BookFilterContext);
     const myContextData = myContext?.data
-    // console.log(myContextData)
 
     return (
         <>
             {myContextData == null || myContextData.length <= 0 && <h1 className="text-center mt-28">Welcome to our books!</h1>}
-            <div className="mx-28 pb-56 pt-28 grid grid-cols-1 min-[900px]:grid-cols-2 xl:grid-cols-3 text-center gap-y-10 gap-x-20">
+            <div className="mx-28 pb-56 pt-60 md:pt-28 grid grid-cols-1 min-[900px]:grid-cols-2 xl:grid-cols-3 text-center gap-y-10 gap-x-20">
                 {myContextData == null || myContextData.length <= 0 ? null : myContextData?.map((v, i) => {
                     let categories = ''
                     v.categories.forEach((v, i) => {
@@ -32,10 +31,13 @@ export const BookAfterFilter = () => {
                     })
                     return (
                         <div key={i}>
-                            <p className="px-6 text-zinc-700">{v.name}</p>
-                            <a href={'/read/' + v.id}>
-                                <img width={187} height={240} src={v.image_url} alt="book" className="block m-auto" />
+                            <p className="px-6 text-zinc-700 text-lg font-semibold">{v.name}</p>
+                            <a href={'/read/' + v.id} className="relative group">
+                                <img width={187} height={240} src={v.image_url} onError={e => {e.currentTarget.src = "/images/landing-literature.jpg"}} alt="book" className="block m-auto" />
                             </a>
+                            <div className="my-4">
+                                <a href={"/write/edit/" + v.id}><span className="px-6 py-2 bg-white rounded-2xl my-4 shadow-md">&#x270E; Edit</span></a>
+                            </div>
                             <p className="px-6 text-zinc-900">{"Author: " + v.author}</p>
                             <p className="px-6 text-zinc-700">{"Categories: " + categories}</p>
                         </div>
