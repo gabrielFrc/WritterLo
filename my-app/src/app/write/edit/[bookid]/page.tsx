@@ -6,17 +6,28 @@ import { useMutatePartialData } from "@/app/BooksAPI/fetchbook";
 import { useEffect, useState } from "react";
 import { PartialBookData } from "@/app/interfaces/mutatebook-data";
 
-function BookEdit({params} : {params : {bookid : string}}){
+export default function BookEditProvider({params} : {params : {bookid : string}}){
+    const queryClient = new QueryClient();
+    return(
+        <>
+            <QueryClientProvider client={queryClient}>
+                <BookEdit params={params}/>
+            </QueryClientProvider>
+        </>
+    )
+}
+
+export function BookEdit({params} : {params : {bookid : string}}){
     const { data } = useBookData();
     const { mutate } = useMutatePartialData();
-
+    
     const [name, setName] = useState<string>('');
     const [author, setAuthor] = useState<string>('');
     const [image_url, setImageUrl] = useState<string>('');
     const [resumo, setResumo] = useState<string>('');
     const [price, setPrice] = useState<number>(0);
     const [categories, setCategories] = useState<string[]>([]);
-
+    
     useEffect(() => {
         let result;
         if(data != null){
@@ -108,17 +119,6 @@ function BookEdit({params} : {params : {bookid : string}}){
                 </form>
                 <h1 className="ml-4">Book ID: {params.bookid}</h1>
             </>}
-        </>
-    )
-}
-
-export default function BookEditProvider({params} : {params : {bookid : string}}){
-    const queryClient = new QueryClient();
-    return(
-        <>
-            <QueryClientProvider client={queryClient}>
-                <BookEdit params={params}/>
-            </QueryClientProvider>
         </>
     )
 }
