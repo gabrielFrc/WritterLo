@@ -6,7 +6,7 @@ import { useMutatePartialData } from "@/app/BooksAPI/fetchbook";
 import { useEffect, useState } from "react";
 import { PartialBookData } from "@/app/interfaces/mutatebook-data";
 
-export function BookEdit({params} : {params : {bookid : string}}){
+function BookEdit({params} : {params : {bookid : string}}){
     const { data } = useBookData();
     const { mutate } = useMutatePartialData();
 
