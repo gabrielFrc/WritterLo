@@ -14,6 +14,8 @@ export function BookEdit({params} : {params : {bookid : string}}){
     const [resumo, setResumo] = useState<string>('');
     const [price, setPrice] = useState<number>(0);
     const [categories, setCategories] = useState<string[]>([]);
+
+    const [submitValue, setSubmitValue] = useState<string>('Save');
     
     useEffect(() => {
         let result;
@@ -21,6 +23,10 @@ export function BookEdit({params} : {params : {bookid : string}}){
             result = data.find(({ id } : { id : number}) => id === parseInt(params.bookid));
         }
         if(result != null){
+            setName(result.name);
+            setAuthor(result.author);
+            setImageUrl(result.image_url);
+            setResumo(result.resumo);
             setCategories(result.categories)
             setPrice(result.price)
             
@@ -34,6 +40,8 @@ export function BookEdit({params} : {params : {bookid : string}}){
     }
 
     const submit = () => {
+        setSubmitValue('Sucefully saved!');
+
         const data : PartialBookData = {
             id : params.bookid,
             name : name,
@@ -48,22 +56,23 @@ export function BookEdit({params} : {params : {bookid : string}}){
 
     return(
         <>
+            <a href="/read" className="pt-[80px] pl-4 block"><span className="font-black text-lg">&#8617;</span> Back</a>
+            {!book && <div className="h-80"></div>}
             {book && <>
-                <a href="/read" className="pt-[80px] pl-4 block"><span className="font-black text-lg">&#8617;</span> Back</a>
-                <form className="flex items-center flex-col" onSubmit={(e) => {submit(); e.preventDefault()}}>
-                    <label htmlFor="bookName">Livro</label>
-                    <input name="bookName" id="bookName" className="my-4 text-2xl text-center px-4 py-2 shadow-md rounded-xl" placeholder={book.name} value={name} onChange={e => setName(e.target.value)}/>
-                    <label htmlFor="author">Autor</label>
-                    <input name="author" id="author" className="mb-10 text-1xl text-center px-4 py-2 shadow-md rounded-xl" placeholder={book.author} value={author} onChange={e => setAuthor(e.target.value)}/>
+                <form className="flex items-center flex-col" onSubmit={(e) => {submit();}}>
+                    <label htmlFor="bookName">Book</label>
+                    <input name="bookName" id="bookName" className="my-4 text-2xl text-center px-4 py-2 shadow-md rounded-xl" placeholder={book.name} value={name} onChange={e => setName(e.target.value)} maxLength={30}/>
+                    <label htmlFor="author">Author</label>
+                    <input name="author" id="author" className="mb-10 text-1xl text-center px-4 py-2 shadow-md rounded-xl" placeholder={book.author} value={author} onChange={e => setAuthor(e.target.value)} maxLength={30}/>
                     <div className="relative">
-                        <input type="text" name="image" id="image" placeholder="URL" value={image_url} onChange={e => setImageUrl(e.target.value)} className="absolute left-[50%] translate-x-[-50%] top-[40%] px-4 py-2 shadow-md rounded-xl"/>
+                        <input type="text" name="image" id="image" placeholder="URL" value={image_url} onChange={e => setImageUrl(e.target.value)} className="absolute left-[50%] translate-x-[-50%] top-[40%] px-4 py-2 shadow-xl border-4 border-stone-800 rounded-xl"/>
                         <img src={book.image_url ? (book.image_url) : '/images/landing-literature.jpg'} width={374} height={480} alt="book" />
                     </div>
-                    <div className="my-20">
+                    <div className="mt-20 mb-10 flex flex-col">
                         <h3 className="text-xl inline">
                             {'Resumo da obra: '}
                         </h3>
-                        <input type="text" name="resumo" id="resumo" placeholder={book.resumo} onChange={e => setResumo(e.target.value)} value={resumo} className="inline text-xl px-4 py-2 shadow-md rounded-xl"/>
+                        <textarea name="resumo" id="resumo" cols={30} rows={10} placeholder={book.resumo} value={resumo} onChange={e => setResumo(e.target.value)} className="resize-none w-[50vw] p-6 rounded-xl border-2 border-stone-400" spellCheck={false}></textarea>
                     </div>
                     <h3 className="text-xl mt-14">Get now for</h3>
                     <input type="number" name="price" id="price" onChange={e => setPrice(parseInt(e.target.value))} value={price} className="border border-2 shadow-md rounded-xl bg-grey h-16 w-20 text-center text-lg"/>
@@ -102,7 +111,7 @@ export function BookEdit({params} : {params : {bookid : string}}){
                     }/>
                     </div>
                     
-                    <input type="submit" value="Salvar" className="cursor-pointer px-8 py-2 bg-black rounded-full text-gray-200"/>
+                    <input type="submit" value={submitValue} className="cursor-pointer px-8 py-2 bg-black rounded-full text-gray-200"/>
                 </form>
                 <h1 className="ml-4">Book ID: {params.bookid}</h1>
             </>}

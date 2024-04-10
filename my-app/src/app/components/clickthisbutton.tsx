@@ -65,22 +65,9 @@ export default function ClickMe() {
 export function DropdownMenu() {
     const clickContext = useContext(ClickContext);
 
-    // const myButtons = [
-    //     {name: 'Log In', url: '', action: () => {
-    //         clickContext?.setLoginOpen(!clickContext.loginWindowOpen);
-    //         console.log(clickContext?.loginWindowOpen);
-    //     }},
-    //     {name: 'Sign In', url: '/sigin'},
-    //     {name: 'Write', url: ''},
-    //     {name: 'Stories', url: '/signin'},
-    //     {name: 'About', url: '/signin'},
-    //     {name: 'Policy', url: '/signin'},
-    // ]
     const myButtons = [
-        { name: 'Write', url: '' },
+        { name: 'Write', url: '/write' },
         { name: 'Stories', url: '/read' },
-        { name: 'About', url: '/signin' },
-        { name: 'Policy', url: '/signin' },
     ]
 
     return (

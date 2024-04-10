@@ -22,7 +22,6 @@ export default function Nav() {
                     <div className="mx-6 hidden md:block">
                         <a href="/write" className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Write</a>
                         <a href="/read"><button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">Stories</button></a>
-                        <button className="px-5 hover:text-neutral-300 hover:scale-150 transition ease-out duration-500">About</button>
                     </div>
                     <a href="/entrar"><button className="font-semibold bg-transparent rounded-full px-3 py-3 hover:bg-skygold hover:text-white transition ease-out duration-500"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 inline mx-2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />

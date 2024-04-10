@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Book, BookFilterContext } from "./bookfilter-context";
-import { LibraryDataContext } from "./bookfilter-context";
 import { useBookData } from "@/app/BooksAPI/fetchbook";
 
 interface FiltersOptions {
@@ -15,22 +14,6 @@ interface FiltersOptions {
         'comedy': boolean,
     },
 }
-// interface Book {
-//     id: number;
-//     name: string;
-//     categorie: string[];
-//     price: number;
-//     image_url: string;
-// }
-
-// interface Author {
-//     name: string;
-//     books: Book[];
-// }
-
-// interface LibraryData {
-//     authors: Author[];
-// }
 
 
 export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => void }) {
@@ -42,35 +25,14 @@ export default function DropdownFilter({ forceUpdate }: { forceUpdate: () => voi
             'horror': true, 'fiction': true, 'comedy': true
         },
     });
-    const [dataFake, setDataFake] = useState<Book[] | null>(null);
     
     const books = useContext(BookFilterContext);
     
     const { data } = useBookData();
 
-    // console.log(data)
-    
-    // const fetchData = async () => {
-    //     try {
-    //         const response = await fetch("/fakedatabase/fakedata.json");
-    //         const data = await response.json();
-    //         setDataFake(data);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
     useEffect(() => {
-        // setDataFake(data);
-        // setTimeout(() => {
-            submitFilters();
-        // }, 2000);
-    }, [data])
-    // useEffect(() => {
-    //     submitFilters();
-    //     setTimeout(() => {
-    //         // console.log(data)
-    //     }, 1000);
-    // }, [dataFake])
+        submitFilters();
+    }, [data]);
 
     const submitFilters = (): void => {
         var radios = document.getElementsByTagName('input');

@@ -8,8 +8,11 @@ const queryClient = new QueryClient();
 
 export default function Book({params} : {params: { bookid: string }}){
     return(
-        <QueryClientProvider client={queryClient}>
-            <BookRead bookid={params.bookid}/>
-        </QueryClientProvider>
+        <>
+            <a href="/read" className="pt-[80px] pl-4 block"><span className="font-black text-lg">&#8617;</span> Back</a>
+            <QueryClientProvider client={queryClient}>
+                <BookRead bookid={params.bookid}/>
+            </QueryClientProvider>
+        </>
     )
 }
