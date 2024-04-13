@@ -28,38 +28,38 @@ export default function SignIn() {
     return (
         <>
             <div className="pt-[80px] mb-36">
-                <h1 className="text-center text-zinc-950 font-thin text-4xl mt-28 mb-20">Conecte-se aqui</h1>
+                <h1 className="text-center text-zinc-950 font-thin text-4xl mt-28 mb-20">Connect Here</h1>
                 <div className="flex justify-center md:justify-around flex-wrap gap-y-4 gap-x-16 pb-36">
                     {loginAccount == false ? <div>
-                        <h2 className="text-zinc-800">Já possui conta?</h2>
+                        <h2 className="text-zinc-800">Already have an account?</h2>
                         <button className="text-center text-zinc-500 bg-zinc-200 py-3 w-[35vw]" onClick={() => {
                             setAccount(!loginAccount);
-                        }}>Entrar</button>
+                        }}>Log in</button>
                     </div> :
                         <div className="flex flex-col">
-                            <h2 className="text-zinc-800">Bem vindo!</h2>
+                            <h2 className="text-zinc-800">Welcome back!</h2>
                             <input type="text" value={loginEmail} onChange={handleLoginEmail} placeholder="E-mail" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <input type="password" value={loginPass} onChange={handleLoginPass} placeholder="Password" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <button className="text-center text-zinc-800 w-min h-min" onClick={() => {
                                 setAccount(!loginAccount);
-                            }}>Voltar</button>
+                            }}>Back</button>
                         </div>}
 
                     {createAccount == false ? <div>
-                        <h2 className="text-zinc-800">Não possui cadastro?</h2>
+                        <h2 className="text-zinc-800">Dont have an account?</h2>
                         <button className="text-center text-zinc-500 bg-zinc-200 py-3 w-[35vw]" onClick={() => {
                             setCreateAccount(!createAccount);
-                        }}>Criar cadastro</button>
+                        }}>Create account</button>
                     </div> :
                         <div className="flex flex-col">
-                            <h2 className="text-zinc-800">Criação de cadastro</h2>
+                            <h2 className="text-zinc-800">Account creation</h2>
                             <input type="text" placeholder="Name" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <input type="text" value={createEmail} onChange={handleCreateEmail} placeholder="E-mail" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <input type="password" value={createPass} onChange={handleCreatePass} placeholder="Password" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <input type="password" placeholder="Confirm password" className="my-1 text-zinc-500 bg-zinc-100 border-2 rounded border-zinc-300 py-3 w-[35vw] pl-4" />
                             <button className="text-center text-zinc-800 w-min h-min" onClick={() => {
                                 setCreateAccount(!createAccount);
-                            }}>Voltar</button>
+                            }}>Back</button>
                         </div>}
                 </div>
             </div>

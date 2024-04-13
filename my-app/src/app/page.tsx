@@ -28,31 +28,32 @@ export default function Home() {
       </div>
       <div className="flex justify-center md:justify-around mt-36 mx-6 text-center flex-col md:flex-row">
         <div className="md:w-2/5">
-          <p>Os livros são tesouros da humanidade, portadores de conhecimento, imaginação e sabedoria. Desde os primórdios da civilização, os livros têm desempenhado um papel fundamental na disseminação de ideias, na preservação da história e na expansão do pensamento humano. <br />
+          <p>Books are treasures of humanity, carriers of knowledge, imagination, and wisdom. Since the dawn of civilization, books have played a fundamental role in disseminating ideas, preserving history, and expanding human thought. <br />
 
-            Um livro é muito mais do que um conjunto de páginas encadernadas; é uma porta de entrada para outros mundos, uma janela para a mente do autor e uma ponte para o conhecimento. Cada livro conta uma história única, seja ela ficcional ou baseada em fatos reais, e oferece ao leitor a oportunidade de se aventurar em novos lugares, conhecer personagens fascinantes e explorar ideias inexploradas.</p>
-          <p className="mt-20">Além disso, os livros são uma fonte inesgotável de aprendizado. Eles abrangem uma ampla variedade de tópicos e disciplinas, desde ciência e história até arte e filosofia, permitindo que os leitores ampliem seus horizontes e aprofundem seu entendimento sobre o mundo ao seu redor.
+            A book is much more than a set of bound pages; it is a gateway to other worlds, a window into the author's mind, and a bridge to knowledge. Each book tells a unique story, whether fictional or based on real-life events, and offers the reader the opportunity to venture into new places, meet fascinating characters, and explore uncharted ideas.</p>
+          <p className="mt-20">Furthermore, books are an endless source of learning. They cover a wide variety of topics and disciplines, from science and history to art and philosophy, allowing readers to broaden their horizons and deepen their understanding of the world around them.
 
-            Os livros também têm o poder de inspirar e transformar vidas. Uma única obra pode tocar profundamente o coração de alguém, despertar novas paixões, desafiar crenças antigas e motivar mudanças significativas. Eles são capazes de gerar empatia, promover o diálogo e conectar pessoas de diferentes origens e culturas.</p>
+            Books also have the power to inspire and transform lives. A single work can deeply touch someone's heart, awaken new passions, challenge old beliefs, and motivate significant changes. They are capable of generating empathy, promoting dialogue, and connecting people from different backgrounds and cultures.</p>
         </div>
         <hr className="h-[.5px] w-auto bg-zinc-500 mx-4 my-8 md:h-auto md:w-[.5px] md:m-0" />
         <div className="md:w-2/5">
-          <p className="w-full block">Os livros são uma forma de preservar a história e a cultura de uma sociedade. Eles documentam os eventos importantes, as tradições e os costumes de uma época, garantindo que as gerações futuras possam aprender com o passado e construir um futuro melhor.
+          <p className="w-full block">Books are a way of preserving the history and culture of a society. They document important events, traditions, and customs of an era, ensuring that future generations can learn from the past and build a better future.
 
-            Em resumo, os livros são verdadeiros tesouros que enriquecem nossas vidas de inúmeras maneiras. Eles nos desafiam, nos inspiram, nos educam e nos conectam uns aos outros, tornando-se companheiros inseparáveis ​​em nossa jornada pela vida.</p>
+            In summary, books are true treasures that enrich our lives in countless ways. They challenge us, inspire us, educate us, and connect us to each other, becoming inseparable companions on our journey through life.</p>
           <p className="mt-20">
-            A leitura é uma atividade enriquecedora que oferece uma ampla gama de benefícios para a mente, o corpo e a alma. Aqui estão algumas razões convincentes pelas quais deveríamos ler regularmente:
+            Reading is an enriching activity that offers a wide range of benefits for the mind, body, and soul. Here are some compelling reasons why we should read regularly:
 
-            Expandir o Conhecimento: A leitura nos expõe a uma vasta quantidade de informações, ideias e perspectivas diferentes. Por meio dos livros, podemos aprender sobre qualquer assunto que nos interesse, desde história e ciência até filosofia e literatura mundial.
+            Expand Knowledge: Reading exposes us to a vast amount of information, ideas, and different perspectives. Through books, we can learn about any subject that interests us, from history and science to philosophy and world literature.
 
-            Estimular a Imaginação: Os livros têm o poder de transportar os leitores para outros mundos, épocas e realidades. Eles estimulam nossa imaginação e criatividade, permitindo-nos vivenciar aventuras emocionantes e experiências emocionantes sem sair do lugar.
+            Stimulate Imagination: Books have the power to transport readers to other worlds, times, and realities. They stimulate our imagination and creativity, allowing us to experience exciting adventures and thrilling experiences without leaving our seats.
 
-            Desenvolver Habilidades Cognitivas: A leitura regular ajuda a fortalecer o cérebro e a melhorar as habilidades cognitivas, como compreensão de leitura, pensamento crítico, concentração e habilidades de resolução de problemas.
+            Develop Cognitive Skills: Regular reading helps strengthen the brain and improve cognitive skills such as reading comprehension, critical thinking, concentration, and problem-solving abilities.
 
-            Reduzir o Estresse: A imersão em um bom livro pode ser uma forma eficaz de escapar do estresse e das preocupações do dia a dia. A leitura relaxa a mente e o corpo, diminuindo os níveis de cortisol e promovendo uma sensação de calma e tranquilidade.
+            Reduce Stress: Immersing ourselves in a good book can be an effective way to escape from the stress and worries of everyday life. Reading relaxes the mind and body, lowering cortisol levels and promoting a sense of calm and tranquility.
           </p>
         </div>
       </div>
+
     </>
   )
 }
