@@ -2,6 +2,11 @@
 
 É uma plataforma de vendas de ebooks, podendo criar livros no site e editar os mesmos quando necessário.
 
+## Overview
+
+![image](https://github.com/gabrielFrc/MyWritter/assets/70562629/efb4f0a3-4f82-4924-949e-8cceb67a5ea8)
+
+
 ## Tecnologias Utilizadas
 
 - **Frontend:**
@@ -19,6 +24,9 @@
 
 - Consumo de API
 - Filtragem de produtos por categoria
+
+![image](https://github.com/gabrielFrc/MyWritter/assets/70562629/e066739f-9264-47ae-be96-b875acb76195)
+
 
 ## Como Iniciar o Projeto
 
