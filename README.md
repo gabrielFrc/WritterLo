@@ -1,6 +1,6 @@
 # WritterLo
 
-Descrição concisa do projeto aqui.
+É uma plataforma de vendas de ebooks, podendo criar livros no site e editar os mesmos quando necessário.
 
 ## Tecnologias Utilizadas
 
@@ -14,6 +14,11 @@ Descrição concisa do projeto aqui.
   - [Java](https://www.java.com/): Linguagem de programação usada para o desenvolvimento do backend.
   - [Spring Framework](https://spring.io/): Framework Java para desenvolvimento de aplicativos empresariais.
   - [PostgreSQL](https://www.postgresql.org/): Banco de dados relacional usado para armazenamento de dados.
+
+## Principais Funcionalidades
+
+- Consumo de API
+- Filtragem de produtos por categoria
 
 ## Como Iniciar o Projeto
 
