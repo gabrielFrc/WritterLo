@@ -17,16 +17,25 @@ Descrição concisa do projeto aqui.
 
 ## Como Iniciar o Projeto
 
-1. **Instalação de Dependências:** Antes de iniciar o projeto, instale todas as dependências do frontend e do backend.
+1. **Instalação de Dependências:** Antes de iniciar o projeto, instale todas as dependências do frontend.
 
-   ```bash
-   # Instalar dependências do frontend
-   npm install
-
-   # Instalar dependências do backend (Java/Spring)
-   # [Adicione instruções de instalação específicas do seu ambiente, como Maven ou Gradle]
+    Clone this repository to your local machine using the command:
+    ```bash
+    git clone https://github.com/gabrielFrc/MyWritter
+    
+    ```
+    Instalar dependências do frontend
+    ```bash
+    npm install
+    
+    ```
+    Run app
+    ```bash
+    npm run dev
+    
+    ```
    
 
-2. **Repositório do BackEnd**
+3. **Repositório do BackEnd [Necessário se quiser rodar a aplicação por completo!]** 
 
    Link: [WritterLo BackEnd](https://github.com/gabrielFrc/WritterloBackend)
